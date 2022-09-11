@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Main Branch Deploy Code') {
             when {
-                branch 'main'
+                branch 'feature'
             }
             steps {
                 sh 'echo "Building Artifact from Main branch"'
@@ -12,6 +12,15 @@ pipeline {
             }
         }
         stage('Develop Branch Deploy Code') {
+            when {
+                branch 'develop'
+            }
+            steps {
+                sh 'echo "Building Artifact from Develop branch"'
+                sh 'echo "Deploying Code from Develop branch"'
+           }
+        }
+      stage('Develop Branch Deploy Code') {
             when {
                 branch 'develop'
             }
